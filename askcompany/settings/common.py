@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Third Apps
     'bootstrap4',
+    'django_pydenticon',
     #Locals APPS
     'accounts',
 ]
