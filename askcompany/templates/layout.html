@@ -11,6 +11,16 @@
 
 </head>
 <body>
+  
+<div class="container">
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} col-sm-12">
+            {{ message }}
+        </div>
+    {% endfor %}
+  {% endif %}
+</div>
 
 <div class="border-bottom mb-3">
     <div class="container">
