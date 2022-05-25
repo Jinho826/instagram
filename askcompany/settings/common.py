@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     #Third Apps
     'bootstrap4',
     'django_pydenticon',
+    'easy_thumbnails',
     #Locals APPS
     'accounts',
     'instagram',
+    
 ]
 
 MIDDLEWARE = [

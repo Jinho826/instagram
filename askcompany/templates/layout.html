@@ -40,7 +40,8 @@
                         </a>
                         
                         {%if user.username %}
-                          <img src="{{ user.avatar_url }}" style="width: 24px; height: 24px;" />
+                          <a class="p-2 text-dark" href="{% url "profile_edit" %}">
+                            <img src="{{ user.avatar_url }}" class="rounded-circle" style="width: 24px; height: 24px;" />
                           </a>
                         {% else %}
                           <a class="p-2 text-dark" href="{% url "login"%}">로그인</a>
