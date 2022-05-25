@@ -1,6 +1,8 @@
 import re
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
+
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -21,8 +23,8 @@ class Post(models.Model):
             tag_list.append(tag)
         return tag_list
 
-    # def get_absolute_url(self):
-    #     return reverse("", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("instagram:post_detail", args=[self.pk])
 
 
 class Tag(models.Model):
