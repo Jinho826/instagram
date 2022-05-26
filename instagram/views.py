@@ -2,13 +2,21 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import PostForm
+from django.db.models import Q
 from .models import Post
 from django.contrib.auth import get_user_model
 
 @login_required
 def index(request):
+    post_list = Post.objects.all().filter(
+            Q(author=request.user) |
+            Q(author__in=request.user.following_set.all())
+        )
+
     suggested_user_list = get_user_model().objects.all().exclude(pk=request.user.pk).exclude(pk__in=request.user.following_set.all())[:3]
+                                                                                              # __in 속하다      
     return render(request, "instagram/index.html",{
+        "post_list" : post_list,
         "suggested_user_list" : suggested_user_list
     })    
 
