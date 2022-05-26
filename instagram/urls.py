@@ -9,4 +9,5 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     re_path(r'^(?P<username>[\w.@+-]+)/$', views.user_page, name='user_page'),
+    
 ]
